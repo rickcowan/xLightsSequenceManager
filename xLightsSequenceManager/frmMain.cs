@@ -251,7 +251,7 @@ namespace xLightsSequenceManager
                     {
                         string mediaFile = sequenceDoc.Root.Element("head").Element("mediaFile").Value;
                         string fileNameNoExtension = Path.GetFileNameWithoutExtension(mediaFile);
-                        string folderPath = Path.GetFileNameWithoutExtension(mediaFile);
+                        string folderPath = Path.GetDirectoryName(mediaFile);
                         sequenceDoc.Root.Element("head").Element("mediaFile").Value = Path.Combine(folderPath, fileNameNoExtension + "_" + index.ToString("D2") + ".mp3");
                     }
 
