@@ -119,7 +119,7 @@ namespace xLightsSequenceManager
 
                 // Get timing track <Element>
                 List<XElement> timingBlocks = originalSequenceDoc.Root.Element("ElementEffects").Elements("Element")
-                    .Where(el => el.Attribute("name").Value.ToLower() == cmbTimingTrack.Text)
+                    .Where(el => el.Attribute("name").Value == cmbTimingTrack.Text)
                     .SingleOrDefault()
                     .Element("EffectLayer").Elements("Effect")
                     .ToList();
@@ -146,7 +146,7 @@ namespace xLightsSequenceManager
                     newElementEffects.Add(originalElementEffects.Elements().Where(el => el.Name != "Element"));
 
                     // Iterate through the <Element>s and add to elementEffects
-                    foreach (XElement originalElement in originalElementEffects.Elements("Element").Where(el => el.Attribute("name").Value.ToLower() != cmbTimingTrack.Text)) 
+                    foreach (XElement originalElement in originalElementEffects.Elements("Element").Where(el => el.Attribute("name").Value != cmbTimingTrack.Text)) 
                     {
                         XElement newElement = new XElement("Element");
                         newElement.Add(originalElement.Attributes().ToArray());
